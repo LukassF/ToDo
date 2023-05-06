@@ -19,10 +19,7 @@ export default function ToDos({id, name, deadline, category, image}: ToDosProps)
         calculateTime({deadline: deadline, setState: setRemainingTime})
         setInterval(() => calculateTime({deadline: deadline, setState: setRemainingTime}),60000)
     },[])
-   
-    useEffect(() => {
-        console.log(hover)
-    },[hover])
+
     
     let timeoutID: number;
     return(

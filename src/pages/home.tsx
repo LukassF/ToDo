@@ -56,7 +56,7 @@ export default function Home(){
                 <div></div>
             </div> */}
 
-            <button id="add-button" onClick={() => setShow(true)}>Add a To-Do</button>
+            <button id="add-button" onClick={() => setShow(true)}>+ Add</button>
             <ModalComponent show={show} setShow={setShow}/>
         </Container>
     )

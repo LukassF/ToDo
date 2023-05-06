@@ -1,4 +1,5 @@
 import {Modal, CloseButton, Form, Button, Container, Col, Row} from 'react-bootstrap'
+import {useState} from 'react'
 
 interface ModalProps{
     show:boolean;
@@ -6,6 +7,7 @@ interface ModalProps{
 }
 
 export default function ModalComponent({show, setShow}: ModalProps){
+
     return(
         <Modal show={show} centered>
             <Modal.Header style={{backgroundColor:'rgba(226, 220, 220,0.6)'}}>
@@ -16,15 +18,15 @@ export default function ModalComponent({show, setShow}: ModalProps){
             <Modal.Body>
                 <Form>
                     <Form.Group className='mb-3'>
-                        <Form.Label>To-Do Name</Form.Label>
+                        <Form.Label>Choose a name</Form.Label>
                         <Form.Control type="text" placeholder="Enter a name"></Form.Control>
                         <Form.Text>Something like: 'Go Shopping'.</Form.Text>
                     </Form.Group>
 
                     <Form.Group className='mb-3'>
-                        <Form.Label>Choose Category</Form.Label>
+                        <Form.Label>Choose a category</Form.Label>
                         <Form.Select>
-                            <option>Choose below</option>
+                            <option>- - - - - -</option>
                             <option>Sports</option>
                             <option>Software Developement</option>
                             <option>Gardening</option>
@@ -35,7 +37,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
 
                     <Form.Group className='mb-4'>
                         <Form.Label>Choose a deadline</Form.Label>
-                        <Form.Control type="datetime-local"></Form.Control>
+                        <Form.Control type="datetime-local" onChange={(e) => console.log(new Date(e.target.value).getHours())}></Form.Control>
                         <Form.Text>Make sure to meet it!</Form.Text>
                     </Form.Group>
 
