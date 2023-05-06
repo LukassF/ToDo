@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react'
 import { CSSTransition } from 'react-transition-group'
 import calculateTime from '../utilities/calculateTime'
 
-type ToDosProps = {
+export type ToDosProps = {
     id:number,
     name:string,
     deadline: Date,

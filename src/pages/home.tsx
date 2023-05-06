@@ -1,7 +1,8 @@
 import {Container,Row, Col,Modal, CloseButton} from 'react-bootstrap'
 import ToDos from '../components/todos'
+import AddToDo from '../utilities/addToDo'
 import ModalComponent from '../components/modal'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const toDosArray = [
     {id:1, name:'Create a new website template', deadline:new Date('05/06/2023'), category:'Software Developement', image:"https://cms-assets.themuse.com/media/lead/_1200x630_crop_center-center_82_none/01212022-1047259374-coding-classes_scanrail.jpg?mtime=1642798879"},
@@ -14,6 +15,15 @@ const toDosArray = [
 
 export default function Home(){
     const [show, setShow] = useState(false);
+    const [date, setDate] = useState(new Date())
+    const [name, setName] = useState('')
+    const [category, setCategory] = useState('')
+    const [update, setUpdate] = useState(false)
+
+    useEffect(() => {
+        if(update) AddToDo({date, name, category})
+    },[update])
+
     return(
         <Container className='pt-5 ' >
             <Row>
@@ -57,7 +67,7 @@ export default function Home(){
             </div> */}
 
             <button id="add-button" onClick={() => setShow(true)}>+ Add</button>
-            <ModalComponent show={show} setShow={setShow}/>
+            <ModalComponent show={show} setShow={setShow} setDate={setDate} setName={setName} setCategory={setCategory} setUpdate={setUpdate}/>
         </Container>
     )
 }
