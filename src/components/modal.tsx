@@ -1,16 +1,17 @@
 import {Modal, CloseButton, Form, Button, Container, Col, Row} from 'react-bootstrap'
-import {createRef} from 'react'
+import {createRef, useState, useEffect} from 'react'
+import AddToDo from '../utilities/addToDo'
 
 interface ModalProps{
     show:boolean
     setShow: (value: boolean) => void
-    setDate: (value: Date) => void
-    setName: (value: string) => void
-    setCategory: (value: string) => void
-    setUpdate: (value:boolean) => void
 }
 
-export default function ModalComponent({show, setShow, setDate, setName, setCategory, setUpdate}: ModalProps){
+export default function ModalComponent({show, setShow}: ModalProps){
+
+    const [date, setDate] = useState(new Date())
+    const [name, setName] = useState('')
+    const [category, setCategory] = useState('')
     
     const NameRef = createRef<HTMLInputElement>();
     const CategoryRef = createRef<HTMLSelectElement>();
@@ -19,7 +20,16 @@ export default function ModalComponent({show, setShow, setDate, setName, setCate
 
     function Update(){
         if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
-        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) setUpdate(true)      
+        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) AddToDo({date, name, category})     
+    }
+
+    function Clear(){
+        if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
+        else{
+            NameRef.current.value = ''
+            CategoryRef.current.value = '- - - - - -'
+            DateRef.current.value = 'dd/mm/yyyy, --:--'
+        }
     }
 
     return(
@@ -61,7 +71,7 @@ export default function ModalComponent({show, setShow, setDate, setName, setCate
                                 setShow(false)
                                 Update()
                                 }}>Add now!</Button></Col>
-                            <Col className='d-flex justify-content-end'><Button variant="secondary">Clear all fields</Button></Col>
+                            <Col className='d-flex justify-content-end'><Button variant="secondary" onClick={() => Clear()}>Clear all fields</Button></Col>
                         </Row>
                     </Container>
                     

@@ -30,7 +30,7 @@ export default function ToDos({id, name, deadline, category, image}: ToDosProps)
             id="card" 
             onMouseEnter={() => {
                 window.clearTimeout(timeoutID)
-                timeoutID = window.setTimeout(() => setHover(true),1000)
+                timeoutID = window.setTimeout(() => setHover(true),1500)
             }} 
             onMouseLeave={() => {
                 window.clearTimeout(timeoutID)
