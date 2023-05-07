@@ -35,8 +35,8 @@ export default function ToDos({id, name, deadline, category, image}: ToDosProps)
                 window.clearTimeout(timeoutID)
                 setHover(false)
             }}>
-            <Card.Img src={image}/>
-            <Card.ImgOverlay style={{background:'linear-gradient(rgba(0,0,0,0.7), transparent)'}}>
+            <Card.Img id="card-image"></Card.Img>
+            <Card.ImgOverlay style={{background:'rgba(0,0,0,0.7)'}}>
                 <CSSTransition in={!hover} unmountOnExit timeout={300} classNames="overlay-animation">
                     <Card.ImgOverlay>
                         <Card.Title style={{padding:'0px 10px'}} className="overlay">{name}</Card.Title>
@@ -74,8 +74,7 @@ export default function ToDos({id, name, deadline, category, image}: ToDosProps)
                     {hover && <Col className='d-flex justify-content-end' xs={3}>
                         <Badge bg="dark" >{remainingTime}</Badge>
                     </Col>}
-                </Row>
-                
+                </Row> 
             </Card.Footer>
         </Card>
     )

@@ -20,29 +20,9 @@
   justify-content: space-around;
   align-items: center;
 }
-@media only screen and (max-width: 576px) {
-  #container {
-    transform: scale(0.8);
-  }
-}
-@media only screen and (max-width: 1200px) and (min-width: 992px) {
-  #container {
-    transform: scale(0.8);
-  }
-}
 
 .overlay {
   font-size: 1.6em;
-}
-@media only screen and (max-width: 768px) {
-  .overlay {
-    font-size: 1.2em;
-  }
-}
-@media only screen and (max-width: 1200px) and (min-width: 992px) {
-  .overlay {
-    font-size: 1.2em;
-  }
 }
 
 .card-text {
@@ -53,22 +33,9 @@
     font-size: 0.8em;
   }
 }
-@media only screen and (max-width: 476px) {
-  .card-text {
-    font-size: 0.7em;
-    margin-top: -20px;
-  }
-}
 @media only screen and (max-width: 1200px) and (min-width: 992px) {
   .card-text {
-    font-size: 0.8em;
-    margin-top: -20px;
-  }
-}
-@media only screen and (max-width: 1400px) and (min-width: 1200px) {
-  .card-text {
     font-size: 0.9em;
-    margin-top: -10px;
   }
 }
 
@@ -122,19 +89,7 @@
   animation: pulse 1s infinite;
 }
 
-@media only screen and (max-width: 576px) {
-  #subtitle {
-    display: none;
-  }
-}
-@media only screen and (max-width: 1200px) and (min-width: 992px) {
-  #subtitle {
-    display: none;
-  }
-}
-
 #card {
-  height: auto;
   overflow: hidden;
   transition: all 0.3s;
   border: solid white 2px;
@@ -146,6 +101,11 @@
 #card:hover * #line {
   transform: scaleX(1);
   transition: transform 1s;
+}
+#card #card-image {
+  height: 350px;
+  background-image: url("https://media.wired.com/photos/5fd2c29c2a4ddaf3b6389694/191:100/w_2580,c_limit/Gear-Books-Roundup-671406905.jpg");
+  background-size: auto 100%;
 }
 
 #line {

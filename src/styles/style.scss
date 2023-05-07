@@ -21,21 +21,21 @@
     justify-content: space-around;
     align-items: center;
 
-    @media only screen and (max-width: 576px){
-        transform: scale(0.8);
-    }
-    @media only screen and (max-width: 1200px) and (min-width:992px){
-        transform: scale(0.8);
-    }
+    // @media only screen and (max-width: 576px){
+    //     transform: scale(0.8);
+    // }
+    // @media only screen and (max-width: 1200px) and (min-width:992px){
+    //     transform: scale(0.8);
+    // }
 }
 .overlay{
     font-size: 1.6em;
-    @media only screen and (max-width: 768px){
-        font-size: 1.2em;
-    }
-    @media only screen and (max-width: 1200px) and (min-width:992px){
-        font-size: 1.2em;
-    }
+    // @media only screen and (max-width: 768px){
+    //     font-size: 1.2em;
+    // }
+    // @media only screen and (max-width: 1200px) and (min-width:992px){
+    //     font-size: 1.2em;
+    // }
 }
 .card-text{
     font-size: 1.1em;
@@ -43,18 +43,18 @@
         font-size: 0.8em;
     }
 
-    @media only screen and (max-width: 476px){
-        font-size: 0.7em;
-        margin-top: -20px;
-    }
+    // @media only screen and (max-width: 476px){
+    //     font-size: 0.7em;
+    //     margin-top: -20px;
+    // }
     @media only screen and (max-width: 1200px) and (min-width:992px){
-        font-size: 0.8em;
-        margin-top: -20px;
-    }
-    @media only screen and (max-width: 1400px) and (min-width:1200px){
         font-size: 0.9em;
-        margin-top: -10px;
+        // margin-top: -20px;
     }
+    // @media only screen and (max-width: 1400px) and (min-width:1200px){
+    //     font-size: 0.9em;
+    //     margin-top: -10px;
+    // }
 }
 // #add-button{
 //     position:fixed;
@@ -147,17 +147,16 @@
 
 
 }
-#subtitle{
-    @media only screen and (max-width: 576px){
-        display:none;
-    }
-    @media only screen and (max-width: 1200px) and (min-width:992px){
-        display:none;
-    }
-}
+// #subtitle{
+//     // @media only screen and (max-width: 576px){
+//     //     display:none;
+//     // }
+//     // @media only screen and (max-width: 1200px) and (min-width:992px){
+//     //     display:none;
+//     // }
+// }
 
 #card{
-    height:auto;
     overflow: hidden;
     transition: all 0.3s;
     border:solid white 2px;
@@ -170,6 +169,12 @@
     &:hover * #line{
         transform: scaleX(1);
         transition: transform 1s;
+    }
+
+    #card-image{
+        height: 350px;
+        background-image: url('https://media.wired.com/photos/5fd2c29c2a4ddaf3b6389694/191:100/w_2580,c_limit/Gear-Books-Roundup-671406905.jpg');
+        background-size: auto 100%;
     }
 }
 
