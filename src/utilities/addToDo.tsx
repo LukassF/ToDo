@@ -1,4 +1,5 @@
 import { ToDosProps } from '../components/todos'
+import images from '../data/category-images.json'
 
 type AddToDoProps = {
     date:Date,
@@ -10,11 +11,16 @@ type AddToDoProps = {
 export default function AddToDo({date, name, category}: AddToDoProps){
     let agenda:ToDosProps[]
     const storage: ToDosProps[] = JSON.parse(window.localStorage.getItem('agenda') || '{}')
+    let chosenCategoryImage: string = ''
+
+    images.images.map(item => {
+        if(item.category === category) chosenCategoryImage = item.image
+    })
 
     if(window.localStorage.getItem('agenda')){
-        agenda = [...storage,{id:storage.length, name:name, deadline:date, category:category, image:''}]
+        agenda = [...storage,{id:storage.length, name:name, deadline:date, category:category, image: chosenCategoryImage}]
     }else{
-        agenda = [{id:0, name:name, deadline:date, category:category, image:''}]
+        agenda = [{id:0, name:name, deadline:date, category:category, image:chosenCategoryImage}]
     }
 
     window.localStorage.setItem('agenda',JSON.stringify(agenda))
