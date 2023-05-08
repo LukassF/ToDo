@@ -1,6 +1,12 @@
 import {Modal, CloseButton, Form, Button, Container, Col, Row} from 'react-bootstrap'
-import {createRef, useState, useEffect} from 'react'
+import {createRef, useState} from 'react'
 import AddToDo from '../utilities/addToDo'
+
+export enum Status{
+    unresolved = "unresolved",
+    failed = "failed",
+    completed = "completed"
+}
 
 interface ModalProps{
     show:boolean
@@ -12,6 +18,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
     const [date, setDate] = useState(new Date())
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
+    const status: Status = Status.unresolved 
     
     const NameRef = createRef<HTMLInputElement>();
     const CategoryRef = createRef<HTMLSelectElement>();
@@ -20,7 +27,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
 
     function Update(){
         if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
-        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) AddToDo({date, name, category})     
+        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) AddToDo({date, name, category,status})     
     }
 
     function Clear(){

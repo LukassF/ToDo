@@ -2,25 +2,34 @@ import {Card, Button, Container, Row, Col, Badge} from 'react-bootstrap'
 import {useState,useEffect} from 'react'
 import { CSSTransition } from 'react-transition-group'
 import calculateTime from '../utilities/calculateTime'
+import { Status } from './modal'
+import changeStatus from '../utilities/changeStatus'
+
+
 
 export type ToDosProps = {
     id:number,
     name:string,
     deadline: Date,
     category: string,
-    image: string
+    image: string,
+    status:Status
 }
 
-export default function ToDos({id, name, deadline, category, image}: ToDosProps){
+export default function ToDos({id, name, deadline, category, image,status}: ToDosProps){
     const [hover,setHover] = useState(false)
     const [remainingTime, setRemainingTime] = useState('')
+    const [statusState,setStatus] = useState<Status>(Status.unresolved)
     const deadlineParsed: Date = new Date(deadline)
 
     useEffect(() => {
-        calculateTime({deadline: deadlineParsed, setState: setRemainingTime})
-        setInterval(() => calculateTime({deadline: deadlineParsed, setState: setRemainingTime}),60000)
+        calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus})
+        setInterval(() => calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus}),60000)
     },[])
 
+    useEffect(() => {
+        if(window.localStorage.getItem('agenda')) changeStatus({statusState,id})
+    },[statusState])
     
     let timeoutID: number;
     return(
@@ -42,8 +51,8 @@ export default function ToDos({id, name, deadline, category, image}: ToDosProps)
                     <Card.ImgOverlay>
                         <Card.Title style={{padding:'0px 10px'}} className="overlay">{name}</Card.Title>
                         <Container id="container">
-                            <Button variant="success" className='btn-lg'><i className='fa fa-check'></i> Done!</Button>
-                            <Button variant="danger" className='btn-lg'><i className='fa fa-close'></i> Remove</Button>  
+                            <Button variant="success" className='btn-lg' onClick={() => setStatus(Status.completed)}><i className='fa fa-check'></i> Done!</Button>
+                            <Button variant="danger" className='btn-lg' onClick={() => setStatus(Status.failed)}><i className='fa fa-close'></i> Remove</Button>  
                         </Container>
                         <Card.Text className="card-text">{remainingTime}</Card.Text>
                         <div id="line"></div>

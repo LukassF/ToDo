@@ -3,7 +3,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   100% {
     transform: scale(1);
@@ -39,14 +39,28 @@
   }
 }
 
+#no-content h1 {
+  font-size: 3em;
+}
+@media screen and (max-width: 768px) {
+  #no-content h1 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  #no-content img {
+    transform: scale(0.7);
+  }
+}
+
 #add-button {
-  width: 140px;
-  aspect-ratio: 1/1;
+  justify-self: center;
+  width: 80vw;
+  height: 60px;
   position: fixed;
-  left: 50px;
   bottom: 50px;
   z-index: 12;
-  border-radius: 50%;
+  border-radius: 500px;
   font-size: 1.4em;
   font-weight: 800;
   border: solid rgb(6, 73, 197) 8px;
@@ -55,30 +69,6 @@
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   transition: all 0.2s;
-}
-#add-button::after {
-  content: "";
-  position: absolute;
-  width: 115%;
-  aspect-ratio: 1/1;
-  border-radius: inherit;
-  border: solid rgb(6, 73, 197) 4px;
-  left: -7.5%;
-  top: -7.5%;
-  transform: scale(0);
-  z-index: -1;
-}
-#add-button::before {
-  content: "";
-  position: absolute;
-  width: 130%;
-  aspect-ratio: 1/1;
-  border-radius: inherit;
-  border: solid rgb(6, 73, 197) 4px;
-  left: -14.5%;
-  top: -14.5%;
-  transform: scale(0);
-  z-index: -1;
 }
 #add-button:hover {
   background-color: rgb(6, 73, 197);
@@ -114,6 +104,13 @@
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 500px;
+}
+
+#no-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay-animation-enter {
