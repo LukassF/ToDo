@@ -106,6 +106,23 @@ body {
   border-radius: 500px;
 }
 
+.droppable-container {
+  padding-bottom: 20px;
+  height: 100%;
+  border-radius: 10px;
+}
+.droppable-container span:nth-child(1) {
+  font-size: 2em;
+}
+.droppable-container .inner-droppable {
+  position: relative;
+  margin-top: 40px;
+  background-color: rgb(42, 63, 66);
+  border-radius: 10px;
+  padding: 10px 20px;
+  height: calc(100% - 40px);
+}
+
 #no-content {
   display: flex;
   flex-direction: column;

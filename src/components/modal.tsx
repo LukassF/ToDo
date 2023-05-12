@@ -51,7 +51,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
                     <Form.Group className='mb-3'>
                         <Form.Label>Choose a name</Form.Label>
                         <Form.Control type="text" placeholder="Enter a name" onChange={(e) => setName(e.target.value)} ref={NameRef}></Form.Control>
-                        <Form.Text>Something like: 'Go Shopping'.</Form.Text>
+                        <Form.Text>Something like: 'Go Shopping'. Make it concise.</Form.Text>
                     </Form.Group>
 
                     <Form.Group className='mb-3'>

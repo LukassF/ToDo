@@ -29,7 +29,12 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     },[])
 
     useEffect(() => {
-        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved) changeStatus({statusState,id})
+        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved){
+            changeStatus({statusState: statusState,id: id,array:  JSON.parse(window.localStorage.getItem('agenda') || '[]')})
+            setTimeout(() => {
+                window.location.reload()
+            },1500)
+        }
     },[statusState])
     
     let timeoutID: number;
