@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 import calculateTime from '../utilities/calculateTime'
 import { Status } from './modal'
 import changeStatus from '../utilities/changeStatus'
+import formatDate from '../utilities/formatDate'
 
 
 
@@ -28,7 +29,7 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     },[])
 
     useEffect(() => {
-        if(window.localStorage.getItem('agenda')) changeStatus({statusState,id})
+        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved) changeStatus({statusState,id})
     },[statusState])
     
     let timeoutID: number;
@@ -75,11 +76,7 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
                 <Row>
                     <Col>
                         Deadline: 
-                        &nbsp; {deadlineParsed.toDateString()}
-                        &nbsp; {String(deadlineParsed.getHours()).padStart(2, '0')} 
-                        <span style={{fontSize:'0.7em', position:'absolute', marginLeft:'3px'}}>
-                            {String(deadlineParsed.getMinutes()).padStart(2, '0')}
-                        </span>
+                        {formatDate(deadline)}
                     </Col>
                     {hover && <Col className='d-flex justify-content-end' xs={3}>
                         <Badge bg="dark" >{remainingTime}</Badge>

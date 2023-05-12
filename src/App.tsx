@@ -7,10 +7,11 @@ import Trending from './pages/trending'
 import History from './pages/history'
 import {Routes, Route} from 'react-router-dom'
 import { Container } from 'react-bootstrap'
+import { DragDropContext } from 'react-beautiful-dnd'
 
 function App() {
   return(
-    <>
+    <DragDropContext onDragEnd={() => {}}>
       <NavbarComponent />
       <Container>
         <Routes>
@@ -20,7 +21,7 @@ function App() {
           <Route path="*" element={<h1>Error 404</h1>}/>
         </Routes>
       </Container>
-    </>
+    </DragDropContext>
   )
 }
 

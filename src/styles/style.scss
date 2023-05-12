@@ -10,8 +10,8 @@
     }
 }
 
-:root{
-    --circle-size:0px;
+body{
+    background-color: rgb(228, 224, 224);
 }
 
 #container{
@@ -20,22 +20,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
-    // @media only screen and (max-width: 576px){
-    //     transform: scale(0.8);
-    // }
-    // @media only screen and (max-width: 1200px) and (min-width:992px){
-    //     transform: scale(0.8);
-    // }
 }
 .overlay{
     font-size: 1.6em;
-    // @media only screen and (max-width: 768px){
-    //     font-size: 1.2em;
-    // }
-    // @media only screen and (max-width: 1200px) and (min-width:992px){
-    //     font-size: 1.2em;
-    // }
 }
 .card-text{
     font-size: 1.1em;
@@ -43,18 +30,10 @@
         font-size: 0.8em;
     }
 
-    // @media only screen and (max-width: 476px){
-    //     font-size: 0.7em;
-    //     margin-top: -20px;
-    // }
     @media only screen and (max-width: 1200px) and (min-width:992px){
         font-size: 0.9em;
-        // margin-top: -20px;
     }
-    // @media only screen and (max-width: 1400px) and (min-width:1200px){
-    //     font-size: 0.9em;
-    //     margin-top: -10px;
-    // }
+
 }
 #no-content{
     h1{
@@ -69,47 +48,8 @@
         }
     }
 }
-// #add-button{
-//     position:fixed;
-//     right:50px;
-//     bottom:50px;
-//     z-index: 12;
-//     button{
-//         width:200px;
-//         aspect-ratio: 3/2;
-        
-//         border-radius: 50px;
-//         font-size: 1.3em;
-//         font-weight: 800;
-//         border: solid green 8px;
-//         color:green;
-//         background-color: rgba(218, 209, 209,0.6);
-//         backdrop-filter: blur(20px);
-//         transition: all 0.2s;
-    
-//         &:hover{
-//             background-color: green;
-//             color:white;
-//         }
-//         &:hover + div{
-//             animation: grow 1s forwards;
-//         }
-//     }
-//     div{
-//         position: absolute;
-//         left:-700px;
-//         top:-700px;
-//         width:1000px;
-//         height:1000px;
-//         background: radial-gradient(var(--circle-size) circle at 80% 77%, rgb(0, 0, 0), transparent);
-//         z-index: -1;
-//     }
-    
-// }
 
 #add-button{
-    // left:50%;
-    // transform: translateX(-50%);
     justify-self: center;
     width:80vw;
     height:60px;
@@ -122,38 +62,14 @@
     border: solid rgb(6, 73, 197) 8px;
     color:rgb(6, 73, 197);
     background-color: rgba(218, 209, 209,0.6);
-    backdrop-filter: blur(20px);
     transition: all 0.2s;
-
-    // &::after{
-    //     content:'';
-    //     position: absolute;
-    //     width:100%;
-    //     height:60px;
-    //     border-radius: inherit;
-    //     border: solid rgb(6, 73, 197) 4px;
-    //     left:0px;
-    //     top:-8px;
-    //     transform: scale(0);
-    //     z-index: -1;
-    // }
-    // &::before{
-    //     content:'';
-    //     position: absolute;
-    //     width:96%;
-    //     height:60px;
-    //     border-radius: inherit;
-    //     border: solid rgb(6, 73, 197) 4px;
-    //     left:2%;
-    //     top:-8px;
-    //     transform: scale(0);
-    //     z-index: -1;
-    // }
+    opacity:0.5;
 
     &:hover{
         background-color: rgb(6, 73, 197);
         color:white;
         animation: pulse 1s infinite;
+        opacity:1;
 
         &::after, &::before{
             animation: pulse 1s infinite;
@@ -162,14 +78,6 @@
 
 
 }
-// #subtitle{
-//     // @media only screen and (max-width: 576px){
-//     //     display:none;
-//     // }
-//     // @media only screen and (max-width: 1200px) and (min-width:992px){
-//     //     display:none;
-//     // }
-// }
 
 #card{
     overflow: hidden;

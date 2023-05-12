@@ -15,7 +15,7 @@ export default function AddToDo({date, name, category, status}: AddToDoProps){
     let agenda:ToDosProps[]
     const storage: ToDosProps[] = JSON.parse(window.localStorage.getItem('agenda') || '{}')
     let chosenCategoryImage: string = ''
-
+    
     images.images.map(item => {
         if(item.category === category) chosenCategoryImage = item.image
     })
@@ -27,5 +27,4 @@ export default function AddToDo({date, name, category, status}: AddToDoProps){
     }
 
     window.localStorage.setItem('agenda',JSON.stringify(agenda))
-    window.location.reload()
 }
