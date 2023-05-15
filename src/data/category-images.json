@@ -2,23 +2,33 @@
     "images": [
         {
             "category":"Software Developement",
+            "icon":"fa fa-desktop",
             "image":"https://cms-assets.themuse.com/media/lead/_1200x630_crop_center-center_82_none/01212022-1047259374-coding-classes_scanrail.jpg?mtime=1642798879"
         },
         {
             "category":"Sports",
+            "icon":"fa-solid fa-basketball",
             "image":"https://uploads-ssl.webflow.com/617b224ba2374548fcc039ba/617b224ba237453ce1c0409b_hpfulq-1234-1024x512.jpg"
         },
         {
             "category":"Gardening",
+            "icon":"fa-solid fa-plant-wilt",
             "image": "https://ca-times.brightspotcdn.com/dims4/default/c8f0d3e/2147483647/strip/true/crop/1800x1013+0+0/resize/1200x675!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ff5%2F33%2F417fa05141e394041be1e7fe9813%2Fgardening-clip-art-adobe-stock.jpg"
         },
         {
             "category": "Social",
+            "icon":"fa-solid fa-people-group",
             "image":"https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/TGBCMS/iy1ex3cookmf9cme5qlnxa.jpg"
         },
         {
             "category": "Miscellaneous",
+            "icon":"fa-solid fa-book",
             "image": "https://media.wired.com/photos/5fd2c29c2a4ddaf3b6389694/191:100/w_2580,c_limit/Gear-Books-Roundup-671406905.jpg"
+        },
+        {
+            "category":"Medical",
+            "icon":"fa-solid fa-pills",
+            "image":"https://lewandowskiclinic.com.pl/wp-content/uploads/2019/02/pexels-photo-1.jpg"
         }
     ]
 }

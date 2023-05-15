@@ -63,6 +63,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
                             <option>Gardening</option>
                             <option>Social</option>
                             <option>Miscellaneous</option>
+                            <option>Medical</option>
                         </Form.Select>
                     </Form.Group>
 

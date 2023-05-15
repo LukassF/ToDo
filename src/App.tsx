@@ -8,46 +8,16 @@ import History from './pages/history'
 import {Routes, Route} from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
-import { Status } from './components/modal';
-import { ToDosProps } from './components/todos';
-import changeStatus from './utilities/changeStatus';
-import UpdateIndexes from './utilities/updateIndexes';
+import dragEnd from './utilities/dragEnd';
 
 export const UpdateContext = createContext<boolean>(false)
 
 function App() {
   const [updateHistory, setUpdateHistory] = useState<boolean>(false)
-  const localStorage: ToDosProps[] = JSON.parse(window.localStorage.getItem('agenda') || '[]')
 
-  function dragEnd(result: DropResult){
-    if(!result.destination || result.destination === result.source) return
-    else {
-      let add
-      console.log(result.source.index)
-      if(result.source.droppableId === 'Completed'){
-        add = localStorage[result.source.index]
-        localStorage.splice(result.source.index,1)
-      }else{
-        add = localStorage[result.source.index]
-        localStorage.splice(result.source.index,1)
-      }
-
-      if(result.destination.droppableId === 'Completed'){
-        localStorage.splice(result.destination.index,0,add)
-        UpdateIndexes(localStorage)
-        changeStatus({statusState: Status.completed,id: result.destination.index, array:localStorage})
-      }else{
-        localStorage.splice(result.destination.index,0,add)
-        UpdateIndexes(localStorage)
-        changeStatus({statusState: Status.failed,id: result.destination.index, array: localStorage})
-      }
-      setUpdateHistory(!updateHistory)
-    }
-
-  }
   return(
     <UpdateContext.Provider value={updateHistory}>
-      <DragDropContext onDragEnd={dragEnd}>
+      <DragDropContext onDragEnd={(result) => dragEnd(result,updateHistory, setUpdateHistory)}>
         <NavbarComponent />
         <Container>
           <Routes>
