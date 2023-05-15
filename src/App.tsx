@@ -7,7 +7,7 @@ import Trending from './pages/trending'
 import History from './pages/history'
 import {Routes, Route} from 'react-router-dom'
 import { Container } from 'react-bootstrap'
-import { DragDropContext, DropResult } from 'react-beautiful-dnd'
+import { DragDropContext} from 'react-beautiful-dnd'
 import dragEnd from './utilities/dragEnd';
 
 export const UpdateContext = createContext<boolean>(false)
