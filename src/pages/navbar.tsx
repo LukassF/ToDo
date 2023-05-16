@@ -10,7 +10,7 @@ export default function NavbarComponent(){
                 <Navbar.Collapse>
                     <Nav style={{marginLeft:"auto"}}>
                         <Nav.Link href='/'>Home</Nav.Link>
-                        <Nav.Link href='/trending'>Browse</Nav.Link>
+                        <Nav.Link href='/about'>About</Nav.Link>
                         <Nav.Link href='/history'>Recent</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

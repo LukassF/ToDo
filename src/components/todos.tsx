@@ -1,5 +1,5 @@
 import {Card, Button, Container, Row, Col, Badge} from 'react-bootstrap'
-import {useState,useEffect} from 'react'
+import {useState,useEffect, createRef} from 'react'
 import { CSSTransition } from 'react-transition-group'
 import calculateTime from '../utilities/calculateTime'
 import { Status } from './modal'
@@ -20,6 +20,7 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     const [remainingTime, setRemainingTime] = useState('')
     const [statusState,setStatus] = useState<Status>(Status.unresolved)
     const deadlineParsed: Date = new Date(deadline)
+    const CardRef = createRef<HTMLDivElement>();
 
     useEffect(() => {
         calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus})
@@ -27,8 +28,9 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     },[])
 
     useEffect(() => {
-        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved){
+        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved && CardRef.current){
             changeStatus({statusState: statusState,id: id,array:  JSON.parse(window.localStorage.getItem('agenda') || '[]')})
+            CardRef.current.classList.add('changed')
             setTimeout(() => {
                 window.location.reload()
             },1500)
@@ -38,6 +40,7 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     let timeoutID: number;
     return(
         <Card 
+            ref={CardRef}
             className='mb-3' 
             key={id}
             id="card" 

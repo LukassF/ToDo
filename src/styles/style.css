@@ -9,8 +9,17 @@
     transform: scale(1);
   }
 }
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 body {
   background-color: rgb(228, 224, 224);
+  margin-bottom: 100px;
 }
 
 #container {
@@ -131,6 +140,10 @@ body {
   }
 }
 
+.changed {
+  animation: fade 1.5s forwards;
+}
+
 #line {
   width: 100%;
   height: 4px;
@@ -152,18 +165,33 @@ body {
 }
 .droppable-container .inner-droppable {
   margin-top: 30px;
-  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 10px 20px;
   min-height: calc(100% - 90px);
   transition: all 0.3s;
-}
-.droppable-container .inner-droppable:hover {
   box-shadow: inset 4px 4px 15px rgba(78, 77, 77, 0.6);
 }
 
-#card-for-grab.dragged {
-  box-shadow: 4px 4px 15px black;
+.dragcompleted {
+  background-color: rgb(198, 198, 245);
+}
+
+.dragfailed {
+  background-color: rgba(223, 120, 120, 0.3);
+}
+
+.dragging {
+  box-shadow: 5px 5px 10px rgba(14, 14, 14, 0.6);
+}
+
+.dropped {
+  color: rgb(230, 230, 125);
+}
+
+#card-for-grab {
+  cursor: grab;
+  z-index: 2;
+  background-color: rgb(37, 48, 48);
 }
 
 #column-1-history {

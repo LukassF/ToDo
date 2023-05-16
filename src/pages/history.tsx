@@ -2,7 +2,6 @@ import { Container, Row, Col} from "react-bootstrap";
 import { Droppable } from "react-beautiful-dnd";
 import { ToDosProps } from "../components/todos";
 import RecentCards from "../components/recent_todoCards";
-// import { isNamedExports } from "typescript";
 import {useEffect, useContext} from 'react'
 import { UpdateContext } from "../App";
 
@@ -23,8 +22,12 @@ import { UpdateContext } from "../App";
                   <span className="title">Completed</span>
                   <Droppable droppableId="Completed">
                      {
-                        (provided) => (
-                           <div ref={provided.innerRef} {...provided.droppableProps} className="inner-droppable">
+                        (provided, snapshot) => (
+                           <div 
+                              ref={provided.innerRef} 
+                              {...provided.droppableProps} 
+                              className={`inner-droppable ${snapshot.isDraggingOver ? 'dragcompleted': ''}`}
+                           >
                               <Row className="d-flex justify-content-center" style={{position:'relative'}}>
                                  {localStorage.filter(item => item.status === 'completed').length !== 0 ? localStorage.map((item, index) => {
                                     if(item.status === 'completed'){
@@ -56,8 +59,11 @@ import { UpdateContext } from "../App";
                   <span className="title">Failed</span>
                   <Droppable droppableId="Failed">
                      {
-                        (provided) => (
-                           <div ref={provided.innerRef} {...provided.droppableProps} className="inner-droppable">
+                        (provided, snapshot) => (
+                           <div 
+                              ref={provided.innerRef} 
+                              {...provided.droppableProps} 
+                              className={`inner-droppable ${snapshot.isDraggingOver ? 'dragfailed': ''}`}>
                               <Row className="d-flex justify-content-center" >
                                  {localStorage.filter(item => item.status === 'failed').length !== 0 ? localStorage.map((item, index) => {
                                     if(item.status === 'failed'){

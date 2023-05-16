@@ -1,14 +1,13 @@
 import { useState } from "react"
 import UpdateIndexes from "./updateIndexes"
 import { ToDosProps } from "../components/todos"
-import { DropResult } from "react-beautiful-dnd"
+import { DragUpdate, DropResult } from "react-beautiful-dnd"
 import { Status } from "../components/modal"
 import changeStatus from "./changeStatus"
 
 export default function dragEnd(result: DropResult, updateHistory:boolean, setUpdateHistory: (value:boolean) => void){
 
     const localStorage: ToDosProps[] = JSON.parse(window.localStorage.getItem('agenda') || '[]')
-
     if(!result.destination || result.destination === result.source) return
     else {
       let add

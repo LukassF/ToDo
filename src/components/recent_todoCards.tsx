@@ -13,7 +13,7 @@ type RecentCardsProps = {
 
 export default function RecentCards({id,index, name, category, deadline}: RecentCardsProps){
 
-    function findIcon(category:string): string{
+    function findIcon(category: string): string{
         let icon:string = ''
         images.images.forEach(item => {
             if(item.category === category) icon = item.icon
@@ -24,12 +24,10 @@ export default function RecentCards({id,index, name, category, deadline}: Recent
     return(
         <Draggable draggableId={id.toString()} index={index}>
             {
-                (provided) => (
+                (provided, snapshot) => (
                     <Card 
-                        className="pt-3 pb-2 mb-2"
+                        className={`pt-3 pb-2 mb-2 ${snapshot.isDragging ? 'dragging' : ''} ${snapshot.isDropAnimating ? 'dropped' : ''}`}
                         id="card-for-grab"
-                        bg='dark'
-                        style={{cursor:"grab", zIndex:'2'}}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
