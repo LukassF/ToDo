@@ -34,7 +34,7 @@ export default function Home(){
                             </Col>
                         )}
                 }) : 
-                    <Col xs={12} id="no-content">
+                    <Col xs={12} id="no-content-image">
                         <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-searching-for-content-4006349-3309935.png?f=webp" alt="no-content-image"/>    
                         <h1>No Todos Yet... Add some!</h1>
                     </Col>

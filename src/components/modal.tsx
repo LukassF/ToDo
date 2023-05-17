@@ -29,6 +29,16 @@ export default function ModalComponent({show, setShow}: ModalProps){
         if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
         else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) AddToDo({date, name, category,status})     
     }
+    function handleEnter(e: any){
+        if(e.keyCode === 13){
+
+            e.preventDefault()
+            setShow(false)
+            Update()
+        }
+    }
+
+    window.onkeydown = (e) => handleEnter(e)
 
     function Clear(){
         if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
@@ -75,7 +85,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
 
                     <Container>
                         <Row>
-                            <Col><Button variant="success" onClick={(e) => {
+                            <Col><Button variant="success" onClick={() => {
                                 setShow(false)
                                 Update()
                                 }}>Add now!</Button></Col>

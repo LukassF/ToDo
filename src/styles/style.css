@@ -17,96 +17,13 @@
     opacity: 0;
   }
 }
+:root {
+  --alert-color: rgb(93, 236, 93);
+}
+
 body {
   background-color: rgb(228, 224, 224);
   margin-bottom: 100px;
-}
-
-#container {
-  height: 60%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-#container button {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  transition: all 0.3s;
-  border: none;
-}
-#container button:nth-child(1) {
-  left: 0;
-  background: linear-gradient(to top, rgba(5, 247, 114, 0.3), transparent, transparent);
-}
-#container button:nth-child(1):hover {
-  background: linear-gradient(to top, rgba(5, 247, 114, 0.3), transparent);
-}
-#container button:nth-child(2) {
-  right: 0;
-  background: linear-gradient(to top, rgba(247, 2, 2, 0.3), transparent, transparent);
-}
-#container button:nth-child(2):hover {
-  background: linear-gradient(to top, rgba(247, 2, 2, 0.3), transparent);
-}
-
-.overlay {
-  font-size: 1.6em;
-}
-
-.card-text {
-  font-size: 1.1em;
-}
-@media only screen and (max-width: 768px) {
-  .card-text {
-    font-size: 0.8em;
-  }
-}
-@media only screen and (max-width: 1200px) and (min-width: 992px) {
-  .card-text {
-    font-size: 0.9em;
-  }
-}
-
-#no-content h1 {
-  font-size: 3em;
-}
-@media screen and (max-width: 768px) {
-  #no-content h1 {
-    font-size: 1.5em;
-  }
-}
-@media screen and (max-width: 768px) {
-  #no-content img {
-    transform: scale(0.7);
-  }
-}
-
-#add-button {
-  justify-self: center;
-  width: 80vw;
-  height: 60px;
-  position: fixed;
-  bottom: 50px;
-  z-index: 12;
-  border-radius: 500px;
-  font-size: 1.4em;
-  font-weight: 800;
-  border: solid rgb(6, 73, 197) 8px;
-  color: rgb(6, 73, 197);
-  background-color: rgba(218, 209, 209, 0.6);
-  transition: all 0.2s;
-  opacity: 0.5;
-}
-#add-button:hover {
-  background-color: rgb(6, 73, 197);
-  color: white;
-  animation: pulse 1s infinite;
-  opacity: 1;
-}
-#add-button:hover::after, #add-button:hover::before {
-  animation: pulse 1s infinite;
 }
 
 #card {
@@ -114,6 +31,58 @@ body {
   transition: all 0.3s;
   border: solid white 2px;
   color: white;
+}
+#card .card-title {
+  font-size: 1.6em;
+}
+#card #buttons-container {
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+#card #buttons-container button {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  transition: all 0.3s;
+  border: none;
+}
+#card #buttons-container button:nth-child(1) {
+  left: 0;
+  background: linear-gradient(to top, rgba(5, 247, 114, 0.3), transparent, transparent);
+}
+#card #buttons-container button:nth-child(1):hover {
+  background: linear-gradient(to top, rgba(5, 247, 114, 0.3), transparent);
+}
+#card #buttons-container button:nth-child(2) {
+  right: 0;
+  background: linear-gradient(to top, rgba(247, 2, 2, 0.3), transparent, transparent);
+}
+#card #buttons-container button:nth-child(2):hover {
+  background: linear-gradient(to top, rgba(247, 2, 2, 0.3), transparent);
+}
+#card .card-text {
+  font-size: 1.1em;
+}
+@media only screen and (max-width: 768px) {
+  #card .card-text {
+    font-size: 0.8em;
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 992px) {
+  #card .card-text {
+    font-size: 0.9em;
+  }
+}
+#card #line {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 500px;
 }
 #card:hover {
   box-shadow: 6px 6px 20px rgb(112, 109, 109);
@@ -144,13 +113,50 @@ body {
   animation: fade 1.5s forwards;
 }
 
-#line {
-  width: 100%;
-  height: 4px;
-  background-color: rgb(255, 255, 255);
-  transform: scaleX(0);
-  transform-origin: left;
+#no-content-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#no-content-image h1 {
+  font-size: 3em;
+}
+@media screen and (max-width: 768px) {
+  #no-content-image h1 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  #no-content-image img {
+    transform: scale(0.7);
+  }
+}
+
+#add-button {
+  justify-self: center;
+  width: 80vw;
+  height: 60px;
+  position: fixed;
+  bottom: 50px;
+  z-index: 12;
   border-radius: 500px;
+  font-size: 1.4em;
+  font-weight: 800;
+  border: solid rgb(6, 73, 197) 8px;
+  color: rgb(6, 73, 197);
+  background-color: rgba(218, 209, 209, 0.6);
+  transition: all 0.2s;
+  opacity: 0.5;
+}
+#add-button:hover {
+  background-color: rgb(6, 73, 197);
+  color: white;
+  animation: pulse 1s infinite;
+  opacity: 1;
+}
+#add-button:hover::after, #add-button:hover::before {
+  animation: pulse 1s infinite;
 }
 
 .droppable-container {
@@ -221,11 +227,24 @@ body {
   }
 }
 
-#no-content {
+.custom-alert {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  width: 350px;
   display: flex;
-  flex-direction: column;
+  font-size: 1.2em;
+  border: solid white 4px;
+  color: white;
+  box-shadow: 4px 4px 10px rgb(158, 153, 153);
+  flex-direction: row;
   justify-content: center;
+  gap: 10px;
   align-items: center;
+  min-height: 60px;
+  border-radius: 500px;
+  background-color: var(--alert-color);
+  transform: translate(-50%, 0%);
 }
 
 .overlay-animation-enter {
@@ -248,4 +267,26 @@ body {
   transform: translateX(100%);
   opacity: 0;
   transition: all 0.3s;
+}
+
+.alert-transition-enter {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+}
+
+.alert-transition-enter-active {
+  transform: translate(-50%, 0%);
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.alert-transition-exit {
+  transform: translate(-50%, 0%);
+  opacity: 1;
+}
+
+.alert-transition-exit-active {
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: all 0.2s;
 }/*# sourceMappingURL=style.css.map */
