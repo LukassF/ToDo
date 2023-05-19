@@ -3,8 +3,9 @@ import {useState,useEffect, createRef} from 'react'
 import { CSSTransition } from 'react-transition-group'
 import calculateTime from '../utilities/calculateTime'
 import { Status } from './modal'
-import changeStatus from '../utilities/changeStatus'
 import formatDate from '../utilities/formatDate'
+import { actions } from "../data/redux_store"
+import { useAppDispatch, useAppSelector } from '../pages/about'
 
 export type ToDosProps = {
     id:number,
@@ -15,7 +16,7 @@ export type ToDosProps = {
     status:Status
 }
 
-export default function ToDos({id, name, deadline, category, image,status}: ToDosProps){
+export default function ToDo({id, name, deadline, category, image,status}: ToDosProps){
     const [hover,setHover] = useState(false)
     const [remainingTime, setRemainingTime] = useState('')
     const [statusState,setStatus] = useState<Status>(Status.unresolved)
@@ -24,6 +25,12 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     const CardRef = createRef<HTMLDivElement>();
     let timeoutID: number;
     
+    const agenda = useAppSelector((state) => state.agenda.agenda)
+    const dispatch = useAppDispatch()
+    const modify = () => {
+        dispatch(actions.change({status:statusState, id:id}))
+    }
+    
     useEffect(() => {
         calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus})
         setInterval(() => calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus}),60000)
@@ -31,14 +38,13 @@ export default function ToDos({id, name, deadline, category, image,status}: ToDo
     
 
     useEffect(() => {
-        if(window.localStorage.getItem('agenda') && statusState !== Status.unresolved && CardRef.current){
-            changeStatus({statusState: statusState,id: id,array: JSON.parse(window.localStorage.getItem('agenda') || '[]')})
+        if(agenda.length !== 0 && statusState !== Status.unresolved && CardRef.current){
             CardRef.current.classList.add('changed')
-            document.documentElement.style.setProperty(`--alert-color`,statusState === Status.completed ? 'rgb(93, 236, 93)' : 'rgb(241, 87, 87)')
+            document.documentElement.style.setProperty('--alert-color',statusState === Status.completed ? 'rgb(93, 236, 93)' : 'rgb(241, 87, 87)')
             setShowAlert(true)
             setTimeout(() => {
                 setShowAlert(false)
-                window.location.reload()
+                modify()
             },1500)
         }
     },[statusState])

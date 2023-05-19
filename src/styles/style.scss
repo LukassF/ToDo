@@ -1,12 +1,12 @@
 @keyframes pulse{
     0%{
-        transform: scale(1);
+        transform:translateX(-50%) scale(1);
     }
     50%{
-        transform: scale(1.05);
+        transform:translateX(-50%) scale(1.05);
     }
     100%{
-        transform: scale(1);
+        transform:translateX(-50%) scale(1);
     }
 }
 
@@ -141,10 +141,11 @@ body{
 }
 
 #add-button{
-    justify-self: center;
     width:80vw;
     height:60px;
     position:fixed;
+    left:50%;
+    transform: translateX(-50%);
     bottom:50px;
     z-index: 12;
     border-radius: 500px;
@@ -162,7 +163,7 @@ body{
         animation: pulse 1s infinite;
         opacity:1;
 
-        &::after, &::before{
+        &::after{
             animation: pulse 1s infinite;
         }
     }
@@ -239,7 +240,8 @@ body{
     }
 }
 .custom-alert{
-    position: absolute;
+    position: fixed;
+    z-index: 100;
     top:80px;
     left:50%;
     width:350px;

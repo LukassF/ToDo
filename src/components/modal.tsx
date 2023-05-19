@@ -1,6 +1,7 @@
 import {Modal, CloseButton, Form, Button, Container, Col, Row} from 'react-bootstrap'
 import {createRef, useState} from 'react'
-import AddToDo from '../utilities/addToDo'
+import { actions } from "../data/redux_store"
+import { useAppDispatch} from '../pages/about'
 
 export enum Status{
     unresolved = "unresolved",
@@ -13,6 +14,7 @@ interface ModalProps{
     setShow: (value: boolean) => void
 }
 
+
 export default function ModalComponent({show, setShow}: ModalProps){
 
     const [date, setDate] = useState(new Date())
@@ -24,14 +26,19 @@ export default function ModalComponent({show, setShow}: ModalProps){
     const CategoryRef = createRef<HTMLSelectElement>();
     const DateRef = createRef<HTMLInputElement>();
 
+    const dispatch = useAppDispatch()
+    const increment = () => {
+        dispatch(actions.add({name:name, deadline:date,category:category, status:status}))
+    }
+
 
     function Update(){
         if(!NameRef.current || !CategoryRef.current || !DateRef.current) return
-        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) AddToDo({date, name, category,status})     
+        else if(NameRef.current.value.length !== 0 && CategoryRef.current.value!== '- - - - - -' && DateRef.current.value.length !== 0) increment()         
     }
+
     function handleEnter(e: any){
         if(e.keyCode === 13){
-
             e.preventDefault()
             setShow(false)
             Update()
