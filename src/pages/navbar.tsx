@@ -5,7 +5,7 @@ export default function NavbarComponent(){
     return(
         <Navbar bg="dark" expand="md" variant="dark">
             <Container fluid="lg">
-                <Navbar.Brand href="#">MyToDos</Navbar.Brand>
+                <Navbar.Brand href="#">Taskify</Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
                 <Navbar.Collapse>
                     <Nav style={{marginLeft:"auto"}}>

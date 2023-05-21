@@ -2,7 +2,7 @@ import {Container,Row, Col,Form} from 'react-bootstrap'
 import ToDo from '../components/todos'
 import ModalComponent from '../components/modal'
 import {useState} from 'react'
-import { useAppSelector } from './about'
+import { useAppSelector } from '../App'
 
 export default function Home(){
     const [show, setShow] = useState(false);
@@ -11,9 +11,6 @@ export default function Home(){
     const agenda = useAppSelector((state) => state.agenda.agenda)
     const completed = useAppSelector((state) => state.agenda.completed)
     const failed = useAppSelector((state) => state.agenda.failed)
-    console.table(agenda)
-    console.table(completed)
-    console.table(failed)
 
     return(
         <Container className='pt-5' >

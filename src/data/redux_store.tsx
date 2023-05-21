@@ -5,6 +5,7 @@ import {combineReducers} from '@reduxjs/toolkit'
 import { ToDosProps } from "../components/todos"
 import AddToDo from "../utilities/addToDo"
 import changeStatus from "../utilities/changeStatus"
+import { Status } from "../components/modal"
 
 const persistConfig = {
     key: ' agenda',
@@ -75,16 +76,20 @@ const arraySlice = createSlice({
             let completedLen = state.completed.length
             state.completed.forEach((item,index) => {
                 item.id = index
+                item.status = Status.completed
             })
             state.failed.forEach((item,index) => {
                 item.id = index + completedLen
+                item.status = Status.failed
             })
         }
     }
 })
+
 const reducer = combineReducers({
     agenda: arraySlice.reducer
 })
+
 const persistedReducer = persistReducer(persistConfig, reducer)
 
 const store = configureStore({

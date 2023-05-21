@@ -1,7 +1,7 @@
 import {Modal, CloseButton, Form, Button, Container, Col, Row} from 'react-bootstrap'
 import {createRef, useState} from 'react'
 import { actions } from "../data/redux_store"
-import { useAppDispatch} from '../pages/about'
+import { useAppDispatch} from '../App'
 
 export enum Status{
     unresolved = "unresolved",

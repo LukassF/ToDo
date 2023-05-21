@@ -5,7 +5,7 @@ import calculateTime from '../utilities/calculateTime'
 import { Status } from './modal'
 import formatDate from '../utilities/formatDate'
 import { actions } from "../data/redux_store"
-import { useAppDispatch, useAppSelector } from '../pages/about'
+import { useAppDispatch, useAppSelector } from '../App'
 
 export type ToDosProps = {
     id:number,
@@ -97,11 +97,13 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                         <Card.ImgOverlay>
                             <Card.Title style={{padding:'5px 10px'}} className='overlay'>{name}</Card.Title>
                             <Card.Subtitle style={{padding:'5px 10px',borderRadius:'4px', color:'black', background:'rgba(255,255,255,0.7)', textAlign:'right'}} id="subtitle">{category}</Card.Subtitle>
-                            <Card.Text style={{padding:'20px 10px 10px 10px', cursor:'default', color:'rgb(219, 217, 217)'}} className='card-text'>Ex do amet esse aliquip voluptate. Labore officia culpa cupidatat tempor laborum 
-                                occaecat consectetur quis magna ex est adipisicing. Elit cillum labore ea aliqua qui aliquip
-                                quis in id sunt incididunt deserunt exercitation ea. Sunt et id Lorem adipisicing duis consequat
+                            <Card.Text style={{padding:'20px 10px 10px 10px', cursor:'default', color:'rgb(219, 217, 217)'}} className='card-text'>
+                                Ex do amet esse aliquip voluptate. Labore officia culpa cupidatat tempor laborum 
+                                <ul>
+                                    <li>occaecat consectetur quis magna ex est adipisicing. Elit cillum labor</li>
+                                    <li> quis in id sunt incididunt deserunt exercitation ea. Sunt et id Lorem</li>
+                                </ul>
                                 quis ad velit cillum non adipisicing sint Lorem. Culpa anim occaecat reprehenderit dolore aute
-                                labore ad labore laborum id elit dolore nulla. Veniam dolor in aliquip voluptate laboris dolore.
                             </Card.Text>
                         </Card.ImgOverlay>
                     </CSSTransition>

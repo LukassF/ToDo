@@ -17,23 +17,36 @@
     opacity: 0;
   }
 }
+@font-face {
+  font-family: JosefinSans;
+  src: url("./JosefinSans-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: JosefinSansBold;
+  src: url("./static/JosefinSans-Bold.ttf");
+}
 :root {
   --alert-color: rgb(93, 236, 93);
 }
 
 body {
-  background-color: rgb(228, 224, 224);
-  margin-bottom: 100px;
+  background-color: #FEFEFE;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%239899AE' stroke-width='63.8' stroke-opacity='0' %3E%3Ccircle fill='%23FEFEFE' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fafafa' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f6f6f5' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23f2f2f1' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23efeded' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23ebe9e9' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23e7e5e4' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23e3e1e0' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23dfdddc' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23dcd9d8' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23d8d5d4' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23d4d1d0' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23d0cdcb' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23cdc9c7' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%23c9c5c3' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23c5c1bf' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%23c2bdbb' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23BEB9B7' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: JosefinSans;
+  overflow-x: hidden;
 }
 
 #card {
   overflow: hidden;
   transition: all 0.3s;
-  border: solid white 2px;
   color: white;
+  border: solid white 4px;
 }
 #card .card-title {
   font-size: 1.6em;
+  cursor: default;
 }
 #card #buttons-container {
   height: 60%;
@@ -85,7 +98,7 @@ body {
   border-radius: 500px;
 }
 #card:hover {
-  box-shadow: 6px 6px 20px rgb(112, 109, 109);
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.6);
 }
 #card:hover * #line {
   transform: scaleX(1);
@@ -166,25 +179,26 @@ body {
   border-radius: 10px;
   position: relative;
 }
-.droppable-container .title {
+.droppable-container .title-1, .droppable-container .title-2 {
   font-size: 2em;
-  color: rgb(77, 75, 75);
+  color: rgb(255, 255, 255);
+  transition: all 0.6s;
+  cursor: default;
 }
 .droppable-container .inner-droppable {
   margin-top: 30px;
   border-radius: 10px;
   padding: 10px 20px;
   min-height: calc(100% - 90px);
-  transition: all 0.3s;
-  box-shadow: inset 4px 4px 15px rgba(78, 77, 77, 0.6);
+  transition: all 0.6s;
 }
 
 .dragcompleted {
-  background-color: rgb(198, 198, 245);
+  background-color: rgb(175, 238, 214);
 }
 
 .dragfailed {
-  background-color: rgba(223, 120, 120, 0.3);
+  background-color: rgb(236, 172, 172);
 }
 
 .dragging {
@@ -201,25 +215,27 @@ body {
   background-color: rgb(37, 48, 48);
 }
 
-#column-1-history {
+#column-1-history, #column-2-history {
   min-height: 78vh;
-  transition: all 0.3s;
+  transition: all 0.6s;
   border-radius: 10px;
-  background-color: rgb(240, 233, 233);
+  background-color: rgb(0, 0, 0);
+  border: solid transparent 4px;
 }
-#column-1-history:hover {
-  box-shadow: 20px 5px 20px -15px rgb(110, 108, 108);
+#column-1-history:hover, #column-2-history:hover {
+  border-color: rgb(175, 238, 214);
+  box-shadow: 0px 0px 20px black;
+}
+#column-1-history:hover * .title-1, #column-2-history:hover * .title-1 {
+  color: rgb(175, 238, 214);
 }
 
-#column-2-history {
-  width: 50%;
-  min-height: 78vh;
-  border-radius: 10px;
-  background-color: rgb(209, 202, 202);
-  transition: all 0.3s;
-}
 #column-2-history:hover {
-  box-shadow: 20px 5px 20px -15px rgb(110, 108, 108);
+  border-color: rgb(236, 172, 172);
+  box-shadow: 0px 0px 20px black;
+}
+#column-2-history:hover * .title-2 {
+  color: rgb(236, 172, 172);
 }
 
 @media only screen and (max-width: 720px) {
@@ -238,7 +254,7 @@ body {
   font-size: 1.2em;
   border: solid white 4px;
   color: white;
-  box-shadow: 4px 4px 10px rgb(158, 153, 153);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   flex-direction: row;
   justify-content: center;
   gap: 10px;
@@ -247,6 +263,58 @@ body {
   border-radius: 500px;
   background-color: var(--alert-color);
   transform: translate(-50%, 0%);
+}
+
+#about-background {
+  width: 100vw;
+  height: calc(100vh - 55px);
+  background-image: url("./wave-haikei.svg");
+  background-size: 110%;
+  position: absolute;
+  left: 0;
+  top: 55px;
+  z-index: -1;
+}
+@media screen and (max-width: 990px) {
+  #about-background {
+    background-size: auto 130%;
+  }
+}
+#about-background #about-container {
+  margin-top: 50px;
+  position: relative;
+  top: 10%;
+}
+#about-background #about-container h1 {
+  font-size: 4.5em;
+  font-family: JosefinSansBold;
+  position: relative;
+}
+#about-background #about-container h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  border-radius: 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  bottom: -20px;
+}
+#about-background #about-container p {
+  margin-top: 50px;
+  padding: 20px 0px;
+}
+#about-background #about-image {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: -1;
+  transform: rotateY(180deg);
+}
+@media screen and (max-width: 990px) {
+  #about-background #about-image {
+    visibility: hidden;
+  }
 }
 
 .overlay-animation-enter {

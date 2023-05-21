@@ -1,7 +1,7 @@
 import { Container, Row, Col} from "react-bootstrap";
 import { Droppable } from "react-beautiful-dnd";
 import RecentCards from "../components/recent_todoCards";
-import { useAppSelector } from "./about";
+import { useAppSelector } from "../App";
 
  export default function History(){
    const completed = useAppSelector((state) => state.agenda.completed)
@@ -9,10 +9,10 @@ import { useAppSelector } from "./about";
 
    return(
       <Container className="mt-5">
-         <Row >
-            <Col className="d-flex justify-content-center text-light" id="column-1-history" xs={12} lg={6} >
-               <Container className="droppable-container mt-2">
-                  <span className="title">Completed</span>
+         <Row className="d-flex justify-content-center">
+            <Col className="d-flex justify-content-center text-light mx-4 my-3" id="column-1-history" xs={12} xl={5} >
+               <Container className="droppable-container mt-3">
+                  <span className="title-1">Completed</span>
                   <Droppable droppableId="Completed">
                      {
                         (provided, snapshot) => (
@@ -30,6 +30,7 @@ import { useAppSelector } from "./about";
                                           id={item.id}
                                           index={index}
                                           name={item.name}
+                                          status={item.status}
                                           category={item.category}
                                           deadline={item.deadline}
                                        />
@@ -47,9 +48,9 @@ import { useAppSelector } from "./about";
                  
                </Container>
             </Col>
-            <Col className="d-flex justify-content-center text-light" id="column-2-history">
-               <Container  className="droppable-container mt-2">
-                  <span className="title">Failed</span>
+            <Col className="d-flex justify-content-center text-light mx-4 my-3" id="column-2-history" xs={12} xl={5}>
+               <Container  className="droppable-container mt-3">
+                  <span className="title-2">Failed</span>
                   <Droppable droppableId="Failed">
                      {
                         (provided, snapshot) => (
@@ -66,6 +67,7 @@ import { useAppSelector } from "./about";
                                           id={item.id}
                                           index={index}
                                           name={item.name}
+                                          status={item.status}
                                           category={item.category}
                                           deadline={item.deadline}
                                        />

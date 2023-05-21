@@ -2,16 +2,18 @@ import {Card, Row, Col} from "react-bootstrap";
 import images from '../data/category-images.json'
 import formatDate from "../utilities/formatDate";
 import { Draggable } from "react-beautiful-dnd";
+import { Status } from "./modal";
 
 type RecentCardsProps = {
     id:number,
     index: number,
     name: string,
     category: string,
-    deadline: Date
+    deadline: Date,
+    status: Status
 }
 
-export default function RecentCards({id,index, name, category, deadline}: RecentCardsProps){
+export default function RecentCards({id,index, name, category, deadline, status}: RecentCardsProps){
 
     function findIcon(category: string): string{
         let icon:string = ''
@@ -33,9 +35,13 @@ export default function RecentCards({id,index, name, category, deadline}: Recent
                         ref={provided.innerRef}
                     >
                         <Row>
-                            <Col xs={1}><i className={findIcon(category)}></i></Col>
-                            <Col><Card.Title>{name}</Card.Title></Col>
-                            <Col className="d-flex justify-content-center align-items-center"><Card.Subtitle className="text-muted" style={{fontSize:'0.8em'}}>{formatDate(deadline)}</Card.Subtitle></Col>
+                            <Col xs={1} className="d-flex justify-content-center"><i className={findIcon(category)}></i></Col>
+                            <Col xs={7}><Card.Title>{name}</Card.Title></Col>
+                            <Col className="d-flex justify-content-start align-items-center"><Card.Subtitle className="text-muted" style={{fontSize:'0.8em'}}>{formatDate(deadline)}</Card.Subtitle></Col>
+                        </Row>
+                        <Row>
+                            <Col xs={1}></Col>
+                            <Col className="text-muted">{category}</Col>
                         </Row>
                     </Card>
                 )
