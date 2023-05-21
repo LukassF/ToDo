@@ -35,7 +35,7 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
         calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus})
         setInterval(() => calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus}),60000)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[deadlineParsed])
+    },[])
     
 
     useEffect(() => {
