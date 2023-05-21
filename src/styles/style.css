@@ -274,6 +274,7 @@ body {
   left: 0;
   top: 55px;
   z-index: -1;
+  overflow-y: hidden;
 }
 @media screen and (max-width: 990px) {
   #about-background {
