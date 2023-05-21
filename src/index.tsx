@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <HashRouter basename='/todo-app'>
+    <HashRouter>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
