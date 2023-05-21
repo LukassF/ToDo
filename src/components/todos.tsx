@@ -34,7 +34,7 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
     useEffect(() => {
         calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus})
         setInterval(() => calculateTime({deadline: deadlineParsed, setState: setRemainingTime, setStatus}),60000)
-    },[])
+    },[deadlineParsed])
     
 
     useEffect(() => {
@@ -47,6 +47,7 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                 modify()
             },1500)
         }
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[statusState])
 
     return(
@@ -99,10 +100,8 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                             <Card.Subtitle style={{padding:'5px 10px',borderRadius:'4px', color:'black', background:'rgba(255,255,255,0.7)', textAlign:'right'}} id="subtitle">{category}</Card.Subtitle>
                             <Card.Text style={{padding:'20px 10px 10px 10px', cursor:'default', color:'rgb(219, 217, 217)'}} className='card-text'>
                                 Ex do amet esse aliquip voluptate. Labore officia culpa cupidatat tempor laborum 
-                                <ul>
-                                    <li>occaecat consectetur quis magna ex est adipisicing. Elit cillum labor</li>
-                                    <li> quis in id sunt incididunt deserunt exercitation ea. Sunt et id Lorem</li>
-                                </ul>
+                                occaecat consectetur quis magna ex est adipisicing. Elit cillum laborum
+                                quis in id sunt incididunt deserunt exercitation ea. Sunt et id Lorem
                                 quis ad velit cillum non adipisicing sint Lorem. Culpa anim occaecat reprehenderit dolore aute
                             </Card.Text>
                         </Card.ImgOverlay>
