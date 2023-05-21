@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Splendid/static/css/main.99bb19c2.css",
-    "main.js": "/Splendid/static/js/main.c8d2b4a1.js",
-    "static/js/787.2843ca88.chunk.js": "/Splendid/static/js/787.2843ca88.chunk.js",
-    "static/media/JosefinSans-VariableFont_wght.ttf": "/Splendid/static/media/JosefinSans-VariableFont_wght.d7d14147b960fccdc60f.ttf",
-    "static/media/JosefinSans-Bold.ttf": "/Splendid/static/media/JosefinSans-Bold.3f4abd6594ab5b202177.ttf",
-    "index.html": "/Splendid/index.html",
-    "static/media/wave-haikei.svg": "/Splendid/static/media/wave-haikei.86a6379d2b75ce28d6ad.svg",
-    "main.99bb19c2.css.map": "/Splendid/static/css/main.99bb19c2.css.map",
-    "main.c8d2b4a1.js.map": "/Splendid/static/js/main.c8d2b4a1.js.map",
-    "787.2843ca88.chunk.js.map": "/Splendid/static/js/787.2843ca88.chunk.js.map"
+    "main.css": "/todo-app/static/css/main.2485f633.css",
+    "main.js": "/todo-app/static/js/main.cb21f954.js",
+    "static/js/787.2843ca88.chunk.js": "/todo-app/static/js/787.2843ca88.chunk.js",
+    "static/media/JosefinSans-VariableFont_wght.ttf": "/todo-app/static/media/JosefinSans-VariableFont_wght.d7d14147b960fccdc60f.ttf",
+    "static/media/JosefinSans-Bold.ttf": "/todo-app/static/media/JosefinSans-Bold.3f4abd6594ab5b202177.ttf",
+    "index.html": "/todo-app/index.html",
+    "static/media/wave-haikei.svg": "/todo-app/static/media/wave-haikei.86a6379d2b75ce28d6ad.svg",
+    "main.2485f633.css.map": "/todo-app/static/css/main.2485f633.css.map",
+    "main.cb21f954.js.map": "/todo-app/static/js/main.cb21f954.js.map",
+    "787.2843ca88.chunk.js.map": "/todo-app/static/js/787.2843ca88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99bb19c2.css",
-    "static/js/main.c8d2b4a1.js"
+    "static/css/main.2485f633.css",
+    "static/js/main.cb21f954.js"
   ]
 }
