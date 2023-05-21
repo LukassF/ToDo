@@ -26,8 +26,8 @@ return(
       <Container>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/todo-app/about" element={<About />}/>
-          <Route path="/todo-app/history" element={<History />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/history" element={<History />}/>
           <Route path="*" element={<h1>Error 404</h1>}/>
         </Routes>
       </Container>
