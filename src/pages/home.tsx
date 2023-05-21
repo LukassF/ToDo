@@ -9,8 +9,6 @@ export default function Home(){
     const [search,setSearch] = useState('')
     
     const agenda = useAppSelector((state) => state.agenda.agenda)
-    const completed = useAppSelector((state) => state.agenda.completed)
-    const failed = useAppSelector((state) => state.agenda.failed)
 
     return(
         <Container className='pt-5' >
@@ -36,10 +34,10 @@ export default function Home(){
                                     status={item.status}
                                 />
                             </Col>
-                        )}
+                        )}else return
                 }) : 
                     <Col xs={12} id="no-content-image">
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-searching-for-content-4006349-3309935.png?f=webp" alt="no-content-image"/>    
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-searching-for-content-4006349-3309935.png?f=webp" alt=""/>    
                         <h1>No Todos Yet... Add some!</h1>
                     </Col>
                     }

@@ -34,7 +34,7 @@ export default function About(){
                     <Col></Col>
                 </Row>
             </Container>
-            <img src="https://assets.website-files.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg" width="1700px" id="about-image" />
+            <img src="https://assets.website-files.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg" width="1700px" id="about-image" alt=""/>
 
         </div>
     )

@@ -15,7 +15,7 @@ type AddToDoProps = {
 export default function AddToDo({date, name, category, status, state}: AddToDoProps){
     let chosenCategoryImage: string = ''
     
-    images.images.map(item => {
+    images.images.forEach(item => {
         if(item.category === category) chosenCategoryImage = item.image
     })
     state.agenda.push({id:state.agenda.length, name:name, deadline:date, category:category, image:chosenCategoryImage, status:status})
