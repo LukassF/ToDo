@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename='/todo-app'>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
