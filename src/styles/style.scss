@@ -162,7 +162,7 @@ body{
     justify-content: center;
     align-items: center;
     height:60vh;
-    max-width: 100vw;
+
     h1{
         font-size: 3em;
         @media screen and (max-width:768px) {
@@ -170,7 +170,7 @@ body{
         }
     }
     img{
-       
+        max-width: 100vw;
         @media screen and (max-width:768px) {
             transform:scale(0.8)
         }
