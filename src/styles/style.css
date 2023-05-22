@@ -110,6 +110,11 @@ body {
   transform-origin: left;
   border-radius: 500px;
 }
+@media (hover: none) {
+  #card #line {
+    visibility: hidden;
+  }
+}
 #card:hover {
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.6);
 }

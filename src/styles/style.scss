@@ -115,6 +115,10 @@ body{
         transform: scaleX(0);
         transform-origin: left;
         border-radius: 500px;
+
+        @media (hover:none){
+            visibility: hidden;
+        }
     }
 
     &:hover{
@@ -125,11 +129,6 @@ body{
         transform: scaleX(1);
         transition: transform 1.5s;
     }
-    
-    // &:active * #line{
-    //     transform: scaleX(1);
-    //     transition: transform 1.5s;
-    // }
 
     #card-image{
         height: 350px;
@@ -139,10 +138,7 @@ body{
     #todo-footer{
         z-index:10;
         background-color:black;
-        
-        // @media screen and (max-width:400px) {
-        //     display:none;
-        // }
+
         #deadline-column{
              @media screen and (max-width:400px) {
                 font-size: 0.7em;
