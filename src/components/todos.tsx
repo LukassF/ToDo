@@ -64,13 +64,18 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                 className='mb-3' 
                 key={id}
                 id="card" 
-                onMouseEnter={() => {
-                    window.clearTimeout(timeoutID)
-                    timeoutID = window.setTimeout(() => setHover(true),1500)
+                onMouseEnter={() => {                 
+                    if (window.matchMedia( "(hover: hover)" ).matches) {
+                        window.clearTimeout(timeoutID)
+                        timeoutID = window.setTimeout(() => setHover(true),1500)
+                     }
                 }} 
-                onMouseLeave={() => {
-                    window.clearTimeout(timeoutID)
-                    setHover(false)
+                onMouseLeave={() => {                   
+                    if (window.matchMedia( "(hover: hover)" ).matches) {
+                        window.clearTimeout(timeoutID)
+                        setHover(false)
+                     }
+                    
                 }}
                 onTouchEnd={() => setHover(hover)}
                 >
