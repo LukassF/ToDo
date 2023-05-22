@@ -152,6 +152,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 60vh;
+  position: absolute;
 }
 #no-content-image h1 {
   font-size: 3em;

@@ -72,6 +72,7 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                     window.clearTimeout(timeoutID)
                     setHover(false)
                 }}
+                onTouchEnd={() => setHover(hover)}
                 >
                 <Card.Img id="card-image" style={{backgroundImage:`url(${image})`}}></Card.Img>
                 <Card.ImgOverlay style={{background:'rgba(0,0,0,0.7)'}}>
