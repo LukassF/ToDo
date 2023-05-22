@@ -326,6 +326,9 @@ body{
             font-size: 4.5em;
             font-family: JosefinSansBold;
             position: relative;
+            @media only screen and (max-width: 476px){
+                font-size: 3.7em;
+            }
 
             &::after{
                 content:'';
