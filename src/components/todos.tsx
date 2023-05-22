@@ -72,16 +72,17 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                     window.clearTimeout(timeoutID)
                     setHover(false)
                 }}
-                onTouchStart={()=> {
-                    window.clearTimeout(timeoutID)
-                    timeoutID = window.setTimeout(() => setHover(true),1500)
-                    console.log('started')
-                }}
-                onTouchEnd={()=> {
-                    window.clearTimeout(timeoutID)
-                    setHover(false)
-                    console.log('ended')
-                }}>
+                // onTouchStart={()=> {
+                //     window.clearTimeout(timeoutID)
+                //     timeoutID = window.setTimeout(() => setHover(true),1500)
+                //     console.log('started')
+                // }}
+                // onTouchEnd={()=> {
+                //     window.clearTimeout(timeoutID)
+                //     setHover(false)
+                //     console.log('ended')
+                // }}
+                >
                 <Card.Img id="card-image" style={{backgroundImage:`url(${image})`}}></Card.Img>
                 <Card.ImgOverlay style={{background:'rgba(0,0,0,0.7)'}}>
                     <CSSTransition in={!hover} unmountOnExit timeout={300} classNames="overlay-animation">
