@@ -86,7 +86,10 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                 <Card.ImgOverlay style={{background:'rgba(0,0,0,0.7)'}}>
                     <CSSTransition in={!hover} unmountOnExit timeout={300} classNames="overlay-animation">
                         <Card.ImgOverlay>
-                            <Card.Title style={{padding:'0px 10px'}} className="card-title">{name}</Card.Title>
+                            <Card.Title style={{padding:'0px 10px'}} className="card-title">
+                                {name}
+                                <Button className='button-flip' variant="secondary" onClick={() => setHover(true)}>Flip <i className='fa fa-arrow-right'/></Button>
+                            </Card.Title>
                             <Container id="buttons-container">
                                 <Button onClick={() => setStatus(Status.completed)}><i className='fa fa-check'></i> Done!</Button>
                                 <Button onClick={() => setStatus(Status.failed)}><i className='fa fa-close'></i> Remove</Button>  
@@ -97,7 +100,10 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                     </CSSTransition>
                     <CSSTransition in={hover} unmountOnExit timeout={300} classNames="overlay-animation">
                         <Card.ImgOverlay>
-                            <Card.Title style={{padding:'5px 10px'}} className='overlay'>{name}</Card.Title>
+                            <Card.Title style={{padding:'5px 10px'}} className='overlay'>
+                                {name}
+                                <Button className='button-flip' variant="secondary" onClick={() => setHover(false)}><i className='fa fa-arrow-left'/> Flip</Button>
+                            </Card.Title>
                             <Card.Subtitle style={{padding:'5px 10px',borderRadius:'4px', color:'black', background:'rgba(255,255,255,0.7)', textAlign:'right'}} id="subtitle">{category}</Card.Subtitle>
                             <Card.Text style={{padding:'20px 10px 10px 10px', cursor:'default', color:'rgb(219, 217, 217)'}} className='card-text'>
                                 Ex do amet esse aliquip voluptate. Labore officia culpa cupidatat tempor laborum 
@@ -110,12 +116,12 @@ export default function ToDo({id, name, deadline, category, image,status}: ToDos
                 </Card.ImgOverlay>
                 <Card.Footer style={{zIndex:10, backgroundColor:'black'}} id="todo-footer">
                     <Row>
-                        <Col>
+                        <Col id="deadline-column">
                             Deadline: 
                             {formatDate(deadline)}
                         </Col>
-                        {hover && <Col className='d-flex justify-content-end' xs={3}>
-                            <Badge bg="dark" >{remainingTime}</Badge>
+                        {hover && <Col className='d-flex justify-content-end' id="remianing-time-column" xs={2}>
+                            <Badge bg="dark" className='d-flex align-items-center justify-content-center'>{remainingTime}</Badge>
                         </Col>}
                     </Row> 
                 </Card.Footer>

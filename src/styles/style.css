@@ -48,6 +48,18 @@ body {
   font-size: 1.6em;
   cursor: default;
 }
+#card .card-title button {
+  position: absolute;
+  z-index: 40;
+  right: 20px;
+  bottom: 50px;
+  visibility: hidden;
+}
+@media (hover: none) {
+  #card .card-title button {
+    visibility: visible;
+  }
+}
 #card #buttons-container {
   height: 60%;
   display: flex;
@@ -104,10 +116,6 @@ body {
   transform: scaleX(1);
   transition: transform 1.5s;
 }
-#card:active * #line {
-  transform: scaleX(1);
-  transition: transform 1.5s;
-}
 #card #card-image {
   height: 350px;
   background-size: auto 100%;
@@ -117,8 +125,14 @@ body {
   background-color: black;
 }
 @media screen and (max-width: 400px) {
-  #card #todo-footer {
-    display: none;
+  #card #todo-footer #deadline-column {
+    font-size: 0.7em;
+  }
+}
+@media screen and (max-width: 400px) {
+  #card #todo-footer #remianing-time-column {
+    font-size: 0.7em;
+    visibility: hidden;
   }
 }
 

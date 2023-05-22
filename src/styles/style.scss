@@ -38,6 +38,7 @@ body{
     background-size: cover;
     font-family: JosefinSans;
     overflow-x: hidden;
+    
 }
 
 #card{
@@ -49,6 +50,18 @@ body{
     .card-title{
         font-size: 1.6em;
         cursor:default;
+
+        button{
+            position: absolute;
+            z-index: 40;
+            right:20px;
+            bottom:50px;
+            visibility:hidden;
+
+            @media (hover:none){
+                visibility: visible;
+            }
+        }
     }
     #buttons-container{
         height:60%;
@@ -111,10 +124,11 @@ body{
         transform: scaleX(1);
         transition: transform 1.5s;
     }
-    &:active * #line{
-        transform: scaleX(1);
-        transition: transform 1.5s;
-    }
+    
+    // &:active * #line{
+    //     transform: scaleX(1);
+    //     transition: transform 1.5s;
+    // }
 
     #card-image{
         height: 350px;
@@ -125,8 +139,19 @@ body{
         z-index:10;
         background-color:black;
         
-        @media screen and (max-width:400px) {
-            display:none;
+        // @media screen and (max-width:400px) {
+        //     display:none;
+        // }
+        #deadline-column{
+             @media screen and (max-width:400px) {
+                font-size: 0.7em;
+            }
+        }
+        #remianing-time-column{
+            @media screen and (max-width:400px) {
+                font-size: 0.7em;
+                visibility: hidden;
+            }
         }
     }
 }
