@@ -19,21 +19,18 @@ export default function About(){
         <button onClick={increment}>+</button> */}
             <Container id="about-container">
                 <Row>
-                    <Col></Col>
-                    <Col xs={10} lg={5}><h1>About Us!</h1></Col>
+                    <Col xs={12} lg={5}><h1>About Us!</h1></Col>
                     <Col></Col>
                 </Row>
                 <Row>
-                    <Col></Col>
-                    <Col xs={10} lg={5}><p className="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <Col xs={12} lg={5}><p className="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Eius aperiam tempora perferendis impedit, fugiat quasi ipsa excepturi asperiores ab deserunt 
                             harum quae vero doloremque corporis, recusandae esse molestiae a est.</p>
                     </Col>
                     <Col></Col>  
                 </Row>
                 <Row>
-                    <Col></Col>
-                    <Col xs={10} lg={5}><Button size="lg" variant="secondary" className="w-100 mt-3">Click here and learn more!</Button></Col>
+                    <Col xs={12} lg={5}><Button size="lg" variant="secondary" className="w-100 mt-3">Click here and learn more!</Button></Col>
                     <Col></Col>
                 </Row>
             </Container>

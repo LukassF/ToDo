@@ -36,6 +36,7 @@ body {
   background-size: cover;
   font-family: JosefinSans;
   overflow-x: hidden;
+  position: relative;
 }
 
 #card {
@@ -305,11 +306,6 @@ body {
   font-family: JosefinSansBold;
   position: relative;
 }
-@media only screen and (max-width: 476px) {
-  #about-background #about-container h1 {
-    font-size: 3.7em;
-  }
-}
 #about-background #about-container h1::after {
   content: "";
   position: absolute;
@@ -334,6 +330,12 @@ body {
 @media screen and (max-width: 990px) {
   #about-background #about-image {
     visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #modal {
+    transform: scale(0.8) translateX(-15px);
   }
 }
 

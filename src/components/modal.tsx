@@ -57,7 +57,7 @@ export default function ModalComponent({show, setShow}: ModalProps){
     }
 
     return(
-        <Modal show={show} centered>
+        <Modal show={show} centered id='modal'>
             <Modal.Header style={{backgroundColor:'rgba(226, 220, 220,0.6)'}}>
             <Modal.Title>Add a ToDo!</Modal.Title>
             <CloseButton  onClick={() => setShow(false)}/>
