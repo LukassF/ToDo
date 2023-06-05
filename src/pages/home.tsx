@@ -11,7 +11,7 @@ export default function Home(){
     const agenda = useAppSelector((state) => state.agenda.agenda)
 
     return(
-        <Container className='pt-5' >
+        <Container className="pt-5" style={{ paddingBottom: "100px" }} >
             {agenda.filter(item => item.status === 'unresolved').length !== 0 && <Row className='mb-5'>
                 <Form>
                     <Row className='gx-0'>
