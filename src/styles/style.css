@@ -42,6 +42,10 @@ body {
   font-family: JosefinSans;
   overflow-x: hidden;
   position: relative;
+  
+  @media screen and (orientation:landscape){
+    transform: rotate(90deg);
+  }
 }
 
 #card {
