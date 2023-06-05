@@ -42,11 +42,6 @@ body {
   font-family: JosefinSans;
   overflow-x: hidden;
   position: relative;
-  
-  @media screen and (orientation:landscape){
-    width:100vw;
-    transform: rotateZ(-90deg);
-  }
 }
 
 #card {
@@ -192,7 +187,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   #no-content-image h1 {
-    font-size: 1.6em;
+    font-size: 2.2em;
   }
 }
 
@@ -336,10 +331,21 @@ body {
     background-size: auto 130%;
   }
 }
+@media screen and (orientation: landscape) {
+  #about-background {
+    background-size: 100% auto;
+  }
+}
 #about-background #about-container {
   margin-top: 50px;
   position: relative;
   top: 10%;
+}
+@media screen and (orientation: landscape) {
+  #about-background #about-container {
+    transform: scale(0.7);
+    margin-top: -30px;
+  }
 }
 #about-background #about-container h1 {
   font-size: 4.5em;
