@@ -122,9 +122,11 @@ body {
     visibility: hidden;
   }
 }
-#card:hover {
-  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.6);
-  transform: scale(1.03);
+@media all and (hover: hover) {
+  #card:hover {
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.6);
+    transform: scale(1.03);
+  }
 }
 #card:hover * #line {
   transform: scaleX(1);
