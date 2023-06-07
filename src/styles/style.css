@@ -333,7 +333,7 @@ body {
     background-size: auto 130%;
   }
 }
-@media screen and (orientation: landscape) {
+@media all and (orientation: landscape) and (hover:none){
   #about-background {
     background-size: 100% auto;
   }
@@ -343,7 +343,7 @@ body {
   position: relative;
   top: 10%;
 }
-@media screen and (orientation: landscape) {
+@media all and (orientation: landscape) and (hover:none) {
   #about-background #about-container {
     transform: scale(0.7);
     margin-top: -30px;
