@@ -1,4 +1,4 @@
-# Taskify
+# Taskify (https://todo-app-henna-eta.vercel.app/)
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
