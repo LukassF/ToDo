@@ -50,17 +50,27 @@ body {
   color: white;
   border: none;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px black;
+}
+@media screen and (max-width: 650px) {
+  #card {
+    height: 200px;
+  }
 }
 #card .card-title {
   font-size: 1.6em;
   cursor: default;
 }
+@media screen and (max-width: 650px) {
+  #card .card-title {
+    font-size: 1.2em;
+  }
+}
 #card .card-title button {
   position: absolute;
   z-index: 10;
-  right: 20px;
-  bottom: 50px;
+  right: 10px;
+  top: 10px;
+  transform: scale(0.8);
   visibility: hidden;
 }
 @media (hover: none) {
@@ -99,9 +109,10 @@ body {
 #card .card-text {
   font-size: 1.1em;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 650px) {
   #card .card-text {
-    font-size: 0.8em;
+    font-size: 0.6em;
+    margin-top: -15px;
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 992px) {
@@ -139,18 +150,29 @@ body {
 #card #todo-footer {
   z-index: 10;
   background-color: rgb(15, 15, 15);
-  border: solid rgb(90, 90, 90) 2px;
-  border-radius: 0px 0px 25px 25px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 650px) {
   #card #todo-footer #deadline-column {
     font-size: 0.7em;
   }
 }
 @media screen and (max-width: 400px) {
+  #card #todo-footer #deadline-column {
+    font-size: 0.5em;
+  }
+}
+@media screen and (max-width: 400px) {
   #card #todo-footer #remianing-time-column {
-    font-size: 0.7em;
-    visibility: hidden;
+    font-size: 0.5em;
+  }
+}
+
+#subtitle {
+  display: flex;
+}
+@media screen and (max-width: 650px) {
+  #subtitle {
+    display: none;
   }
 }
 
@@ -189,7 +211,17 @@ body {
 }
 @media screen and (max-width: 768px) {
   #no-content-image h1 {
-    font-size: 1.6em;
+    font-size: 2.2em;
+  }
+}
+@media screen and (max-width: 470px) {
+  #no-content-image h1 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 330px) {
+  #no-content-image h1 {
+    font-size: 1.2em;
   }
 }
 
@@ -333,7 +365,7 @@ body {
     background-size: auto 130%;
   }
 }
-@media all and (orientation: landscape) and (hover:none){
+@media screen and (orientation: landscape) {
   #about-background {
     background-size: 100% auto;
   }
@@ -343,7 +375,7 @@ body {
   position: relative;
   top: 10%;
 }
-@media all and (orientation: landscape) and (hover:none) {
+@media screen and (orientation: landscape) {
   #about-background #about-container {
     transform: scale(0.7);
     margin-top: -30px;
