@@ -23,7 +23,7 @@ export default function About(){
                     <Col></Col>
                 </Row>
                 <Row>
-                    <Col xs={12} lg={5}><p className="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <Col xs={12} lg={5}><p className="text-muted px-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Eius aperiam tempora perferendis impedit, fugiat quasi ipsa excepturi asperiores ab deserunt 
                             harum quae vero doloremque corporis, recusandae esse molestiae a est.</p>
                     </Col>
