@@ -1,3 +1,9 @@
+@mixin flex($direction, $justify, $align){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
 @keyframes pulse{
     0%{
         transform:translateX(-50%) scale(1);
@@ -53,17 +59,24 @@ background-size: cover;
     color:white;
     border:none;
     border-radius: 25px;
-    box-shadow: 0px 0px 10px black;
+
+    @media screen and (max-width:650px) {
+        height: 200px;
+    }
 
     .card-title{
         font-size: 1.6em;
         cursor:default;
+        @media screen and (max-width:650px) {
+            font-size: 1.2em;
+        }
 
         button{
             position: absolute;
             z-index: 10;
-            right:20px;
-            bottom:50px;
+            right:10px;
+            top:10px;
+            transform: scale(0.8);
             visibility:hidden;
 
             @media (hover:none){
@@ -104,11 +117,14 @@ background-size: cover;
             }
         }
     }
+
+ 
     
     .card-text{
         font-size: 1.1em;
-        @media only screen and (max-width: 768px){
-            font-size: 0.8em;
+        @media only screen and (max-width: 650px){
+            font-size: 0.6em;
+            margin-top: -15px;
         }
     
         @media only screen and (max-width: 1200px) and (min-width:992px){
@@ -129,8 +145,11 @@ background-size: cover;
     }
 
     &:hover{
-        box-shadow: 6px 6px 20px rgb(0, 0, 0, 0.6);
-        transform: scale(1.03);
+        @media all and (hover:hover) {
+            box-shadow: 6px 6px 20px rgb(0, 0, 0, 0.6);
+            transform: scale(1.03);
+        }
+
     }
 
     &:hover * #line{
@@ -146,20 +165,27 @@ background-size: cover;
     #todo-footer{
         z-index:10;
         background-color:rgb(15, 15, 15);
-        border: solid rgb(90, 90, 90) 2px;
-        border-radius: 0px 0px 25px 25px;
 
         #deadline-column{
-             @media screen and (max-width:400px) {
+            @media screen and (max-width:650px) {
                 font-size: 0.7em;
+            }
+             @media screen and (max-width:400px) {
+                font-size: 0.5em;
             }
         }
         #remianing-time-column{
             @media screen and (max-width:400px) {
-                font-size: 0.7em;
-                visibility: hidden;
+                font-size: 0.5em;
+                
             }
         }
+    }
+}
+#subtitle{
+    display:flex;
+    @media screen and (max-width:650px){
+        display:none
     }
 }
 .changed{
@@ -196,6 +222,12 @@ background-size: cover;
         font-size: 3em;
         @media screen and (max-width:768px) {
             font-size: 2.2em;
+        }
+        @media screen and (max-width:470px) {
+            font-size: 1.5em;
+        }
+        @media screen and (max-width:330px) {
+            font-size: 1.2em;
         }
     }
 }
@@ -343,10 +375,17 @@ background-size: cover;
     @media screen and (max-width:990px) {
         background-size: auto 130%;
     }
+    @media screen and (orientation:landscape) {
+        background-size: 100% auto;
+    }
     #about-container{
         margin-top: 50px;
         position: relative;
         top:10%;
+        @media screen and (orientation:landscape) {
+            transform: scale(0.7);
+            margin-top: -30px;
+        }
         h1{ 
             font-size: 4.5em;
             font-family: JosefinSansBold;
