@@ -365,12 +365,7 @@ body {
     background-size: auto 130%;
   }
 }
-@media screen and (orientation: landscape) and (any-hover: none) and (max-width: 500px) {
-  #about-background #about-container {
-    transform: scale(0.7);
-    margin-top: -30px;
-  }
-}
+
 #about-background #about-container {
   margin-top: 50px;
   position: relative;
